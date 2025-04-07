@@ -4,11 +4,14 @@
 #### 爬取内容
 ```
 /EasyMoneyCrawler
-├── stockCrwaler/ # 实时股价爬虫
+├── forexCrwaler/ # 外汇爬虫
+│ └── forex.py
+|
+├── stockCrwaler/ # 股价爬虫
 | ├── sh_stock.py
 │ └── sz_stock.py
 │
-├── spotGoldPriceCrawler/ # 黄金价格爬虫
+├── spotGoldPriceCrawler/ # 黄金爬虫
 │ └── spotgold_price.py
 │
 └── README.md
