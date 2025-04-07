@@ -9,7 +9,7 @@
 │ └── sz_stock.py
 │
 ├── spotGoldPriceCrawler/ # 黄金价格爬虫
-│ └── spotgold_price.py # 抖音爬虫
+│ └── spotgold_price.py
 │
 └── README.md
 ```
