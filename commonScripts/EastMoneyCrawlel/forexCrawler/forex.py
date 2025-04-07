@@ -2,8 +2,6 @@ import requests
 import re
 import time
 import pandas as pd
-import datetime
-import random
 
 
 def get_forex_data():
@@ -30,7 +28,6 @@ def data_process(df):
     data['最高'] = data['最高'].apply(lambda x: round(int(x) / 10000, 2) if x != '-' else x)
     data['最低'] = data['最低'].apply(lambda x: round(int(x) / 10000, 2) if x != '-' else x)
     data['今开'] = data['今开'].apply(lambda x: round(int(x) / 10000, 2) if x != '-' else x)
-    data['更新时间'] = datetime.datetime.now().strftime('%Y/%m/%d %H:%M:%S')
     return data
 
 
