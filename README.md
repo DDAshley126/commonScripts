@@ -2,3 +2,26 @@
 
 #### 介绍
 本仓库收集日常工作常用脚本，包括办公自动化、数据看板、pdf编辑、爬取数据等。
+
+#### 文件结构
+```
+/commonScripts
+├── DesktopNotification/ # 电脑桌面通知
+│ └── desktop_notice.py
+│
+├── EastMoneyCrawler/ # 东财爬虫
+│ ├── forexCrawler
+│ ├── spotGoldPriceCrawler
+│ └── stockCrawler
+|
+├── amapAPI/ # 高德api获取地址信息
+│ └── address_info.py
+│
+├── emailSend/ # 邮件发送
+│ └── email_send.py
+│
+├── sgeCrawler/ # 上交所爬虫
+│ └── spotgold_price.py
+│
+└── README.md
+```
