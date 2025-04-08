@@ -23,5 +23,8 @@
 ├── sgeCrawler/ # 上交所爬虫
 │ └── spotgold_price.py
 │
+├── sinaCrawler/ # 新浪财经
+│ └── forexCrawler
+│
 └── README.md
 ```
