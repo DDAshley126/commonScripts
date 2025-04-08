@@ -14,6 +14,9 @@
 ├── spotGoldPriceCrawler/ # 黄金爬虫
 │ └── spotgold_price.py
 │
+├── golbalIndexCrawler/ # 全球指数爬虫
+│ └── global_index.py
+|
 └── README.md
 ```
 
