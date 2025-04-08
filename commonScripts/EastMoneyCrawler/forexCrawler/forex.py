@@ -4,33 +4,43 @@ import time
 import pandas as pd
 
 
-def get_forex_data():
-    now = timetime()
-    url = f'https://push2.eastmoney.com/api/qt/clist/get?np=1&fltt=1&invt=2&cb=jQuery37109255212463222533_{now}&fs=b%3AMK0300&fields=f12%2Cf13%2Cf14%2Cf1%2Cf2%2Cf4%2Cf3%2Cf152%2Cf17%2Cf18%2Cf15%2Cf16&fid=f3&pn=1&pz=100&po=1&dect=1&ut=fa5fd1943c7b386f172d6893dbfba10b&wbp2u=%7C0%7C0%7C0%7Cweb&_={now}'
-    response = requests.get(url)
-    data = response.text
-    r = re.compile('.*\((.*)\).*')
-    data = r.findall(data)[0]
-    data = eval(data)
+def get_forex_data(exchange_type):
+    now = time.time()
+    match exchange_type:
+        case 'all' | '所有汇率':
+            fs = 'm%3A119%2Cm%3A120%2Cm%3A133'
+        case 'basic' | '基本汇率':
+            fs = 'b%3AMK0300'
+        case 'cross' | '交叉汇率':
+            fs = 'b%3AMK0301'
+
+    null = 'null'
+    page = 0
+    forex = []
+    while True:
+        page += 1
+        print(f'正在爬取第{page}页')
+        url = f'https://push2.eastmoney.com/api/qt/clist/get?np=1&fltt=1&invt=2&cb=jQuery37104721282746568578_{now}&fs={fs}&fields=f12%2Cf13%2Cf14%2Cf1%2Cf2%2Cf4%2Cf3%2Cf152%2Cf17%2Cf18%2Cf15%2Cf16&fid=f3&pn={page}&pz=20&po=1&dect=1&ut=fa5fd1943c7b386f172d6893dbfba10b&wbp2u=%7C0%7C0%7C0%7Cweb'
+        response = requests.get(url)
+        data = response.text
+        r = re.compile('.*\((.*)\).*')
+        data = r.findall(data)[0]
+        df = eval(data)
+        return data
+        if df['data'] != 'null':
+            df = df['data']['diff']
+            for i in df:
+                dict = {
+                    '最新价': i['f2']/100,
+                    '涨跌幅': str(i['f3']/100) + '%',
+                    '涨跌额': i['f4']/100,
+                    '代码': i['f12'],
+                    '品种': i['f14'],
+                    '最高价': i['f15']/100,
+                    '最低价': i['f16']/100,
+                    '今开': i['f17']/100,
+                }
+                forex.append(dict)
+        else: 
+            break
     return data
-
-
-def data_process(df):
-    data = pd.DataFrame([df['data']['diff'][0]])
-    for i in range(1, len(df['data']['diff'])):
-        data.loc[len(data)] = list(df['data']['diff'][i].values())
-    data.rename(columns={'f2': '最新价', 'f3': '涨跌幅', 'f4': '涨跌额', 'f12': '代码', 'f14': '品种', 'f15': '最高',
-                            'f16': '最低', 'f17': '今开'}, inplace=True)
-    data.drop(columns=['f1', 'f13', 'f152'], inplace=True)
-    data['最新价'] = data['最新价'].apply(lambda x: round(int(x) / 10000, 4) if x != '-' else x)
-    data['涨跌幅'] = data['涨跌幅'].apply(lambda x: str(round(int(x) / 10000, 2)) + '%' if x != '-' else x)
-    data['涨跌额'] = data['涨跌额'].apply(lambda x: round(int(x) / 10000, 2) if x != '-' else x)
-    data['最高'] = data['最高'].apply(lambda x: round(int(x) / 10000, 2) if x != '-' else x)
-    data['最低'] = data['最低'].apply(lambda x: round(int(x) / 10000, 2) if x != '-' else x)
-    data['今开'] = data['今开'].apply(lambda x: round(int(x) / 10000, 2) if x != '-' else x)
-    return data
-
-
-def main():
-    df = get_forex_data()
-    df = data_process(df)
