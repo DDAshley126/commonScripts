@@ -107,7 +107,7 @@ def forex_bank_quotation(bank='招商银行') -> pd.DataFrame:
     data['现汇卖出价'] = pd.to_numeric(data['现汇卖出价'], errors='coerce')/10000
     data['现钞买入价'] = pd.to_numeric(data['现钞买入价'], errors='coerce') / 10000
     data['现钞卖出价'] = pd.to_numeric(data['现钞卖出价'], errors='coerce') / 10000
-    data['更新时间'] = pd.to_datetime(data['更新时间'], unit='s')
+    data['更新时间'] = pd.to_datetime(data['更新时间']+28800, unit='s')     # 时区
     data.fillna('-', inplace=True)
     return data
 
