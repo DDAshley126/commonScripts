@@ -1,6 +1,5 @@
 import requests
 import re
-import time
 import pandas as pd
 
 
@@ -10,7 +9,6 @@ def forex_quotation(exchange_type) -> pd.DataFrame:
     :param exchange_type: 汇率种类
     :return: 汇率表
     """
-    now = time.time()
     params = {
         'np': '1',
         'fltt': '1',
