@@ -37,6 +37,7 @@ target/
 *.zip
 *.tar
 *.tar.gz
+*.env
 
 ### logs ####
 /logs/

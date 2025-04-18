@@ -28,6 +28,8 @@ class HotFinanceAnalysor:
 
         self.client = OpenAI(api_key=self.api_key, base_url=self.base_url)
 
+    def run(self):
+        fetch()
 
 if __name__ == '__main__':
     HotFinanceAnalysor().run()

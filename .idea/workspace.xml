@@ -5,24 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7b5cfb27-dbe3-492a-8b85-331ed67a0160" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/config.env" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/data_process.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/plot.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/cfg.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/echarts.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/callbacks/callbacks.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset/behavior_data.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/Models.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/api.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/home.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/page1.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/404page.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config.env" beforeDir="false" afterPath="$PROJECT_DIR$/config.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,7 +47,8 @@
     "Python.test.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "master",
-    "settings.editor.selected.configurable": "inlay.hints"
+    "last_opened_file_path": "D:/path/pythonProject/HotFinanceAnalysor",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
 }]]></component>
   <component name="RunManager">
