@@ -97,9 +97,7 @@ def forex_bank_quotation(bank='招商银行') -> pd.DataFrame:
     r = re.compile('.*"diff":(.*)}}')
     data = r.findall(data)[0]
     df = eval(data)
-    data = pd.DataFrame([df[0]])
-    for i in range(1, len(df)):
-        data.loc[len(data)] = list(df[i].values())
+    data = pd.DataFrame.from_dict(df, orient='index')
     data.rename(
         columns={'f12': '代码', 'f14': '品种', 'f31': '现汇买入价', 'f32': '现汇卖出价', 'f142': '现钞买入价', 'f143': '现钞卖出价', 'f124': '更新时间'}, inplace=True)
     data.drop(columns=['f1', 'f3', 'f4', 'f152'], inplace=True)
